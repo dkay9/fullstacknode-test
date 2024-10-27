@@ -45,8 +45,8 @@ app.get('/api/persons/:id', (req, res) => {
 })
 app.delete('/api/persons/:id', (req, res) => {
     const id = Number(req.params.id)
-    persons = persons.filter(entry => entry != id)
-    
+    persons = persons.filter(entry => entry.id != id)
+    res.send(204).end()
 })
 app.listen(PORT, () => {
     console.log(`Server active on ${PORT}`)
