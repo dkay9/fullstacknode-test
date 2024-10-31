@@ -6,6 +6,12 @@ const PORT = 3001
 app.use(express.json())
 app.use(morgan('tiny'))
 
+morgan.token('object', function(req, res){
+    return `${JSON.stringify(req.body)}`
+})
+
+app.use(morgan(`:object`))
+
 let persons = [
     { 
       "id": "1",
